@@ -19,6 +19,9 @@ sudo ifconfig wlan0 down && sudo ifconfig wlan0 up
 sudo systemctl daemon-reload
 sudo systemctl restart dhcpcd
 
+# wait 30 sec to make sure that the pi has obtained an ip adress
+sleep 30
+
 # get the wifi ip adress 
 wifi_ip=$(sudo ifconfig wlan0 | grep -e "inet " | awk '{print$2}')
 
